@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+li a:hover {
+  background-color: #111;
+}
+body{
+  background-color: aqua;
+}
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a class="active" href="API project.html">pictures about astronomy</a></li>
+        <li><a href="API project part2.html">jokes</a></li>
+        <!-- <li><a href="API project part3.html">facts about numbers</a></li> -->
+        
+      </ul>
+
+    <h1>picture of astronomy of the day</h1>
+    <br></br>
+    <button id="1" onclick="hi()">click for the daily picture of astronomy</button>
+    <img id="img" >
+    <p id="message"></p>
+   
+    <script>
+    function hi(){
+    fetch('https://go-apod.herokuapp.com/apod')
+    .then((data)=>{
+        return data.json()
+    }).then((completedata)=>{
+        console.log(completedata);
+        document.getElementById('message').innerHTML = completedata.explanation
+        document.getElementById('img').src = completedata.url;
+    })
+    }
+    </script>
+    
+    <style>
+     h1 {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: blue;
+     }
+    </style>
+</body>
+</html>

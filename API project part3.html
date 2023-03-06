@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <style>
+            ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+body{
+  background-color: aqua;
+}
+    </style>
+</head>
+<body>
+    
+</body>
+
+<ul>
+    <li><a class="active" href="API project.html">pictures of/about astronomy</a></li>
+    <li><a href="API project part2.html">jokes</a></li>
+    <!-- <li><a href="API project part3.html">facts about numbers</a></li> -->
+  </ul>
+
+  <input id="input" placeholder="type a number" type="number">
+  <button onclick="run()">click me</button>
+
+  <script>
+function run(){
+  let userNum = document.getElementById("input").value
+    fetch(`http://numbersapi.com`)
+    .then((completedata)=>{
+        console.log(completedata);
+    })
+}
+  </script>
+</html>
